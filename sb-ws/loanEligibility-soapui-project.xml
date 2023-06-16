@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="e8287d2e-9e12-450a-b325-17ff2aa31b3f" activeEnvironment="Default" name="loanEligibility" resourceRoot="" soapui-version="5.7.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="62a205b6-e322-4eff-961e-3bfc7c783f0c" wsaVersion="NONE" name="LoanEligibilityPortTypeSoap11" type="wsdl" bindingName="{http://www.sb.com/loanEligibility}LoanEligibilityPortTypeSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ws/loanEligibility.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ws/loanEligibility.wsdl"><con:part><con:url>http://localhost:8080/ws/loanEligibility.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.sb.com/loanEligibility" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch0="http://www.sb.com/loanEligibility" xmlns:sch1="http://www.sb.com/customer" xmlns:sch2="http://www.sb.com/loantearms" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.sb.com/loanEligibility">
+  <wsdl:types>
+    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.sb.com/loanEligibility" xmlns:wsse="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="CustomerRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="id" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Acknowledgement">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="isEligible" type="xsd:boolean"/>
+            <xsd:element name="approvedAmount" type="xsd:long"/>
+            <xsd:element maxOccurs="unbounded" name="CriteriaMismatch" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.sb.com/customer" xmlns:tns="http://www.sb.com/customer" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="CreateCustomerRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerId" type="xsd:int"/>
+            <xsd:element name="customerName" type="xsd:string"/>
+            <xsd:element name="age" type="xsd:int"/>
+            <xsd:element name="yearlyIncome" type="xsd:int"/>
+            <xsd:element name="cibilScore" type="xsd:int"/>
+            <xsd:element name="employmentMode" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CreateCustomerResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerId" type="xsd:int"/>
+            <xsd:element name="status" type="xsd:string"/>
+            <xsd:element name="message" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DeleteCustomerRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerId" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DeleteCustomerResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerId" type="xsd:int"/>
+            <xsd:element name="status" type="xsd:string"/>
+            <xsd:element name="message" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdateCustomerRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerId" type="xsd:int"/>
+            <xsd:element name="customerName" type="xsd:string"/>
+            <xsd:element name="age" type="xsd:int"/>
+            <xsd:element name="yearlyIncome" type="xsd:int"/>
+            <xsd:element name="cibilScore" type="xsd:int"/>
+            <xsd:element name="employmentMode" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdateCustomerResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerId" type="xsd:int"/>
+            <xsd:element name="status" type="xsd:string"/>
+            <xsd:element name="message" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetCustomerRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerId" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GetCustomerResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="customerId" type="xsd:int"/>
+            <xsd:element name="customerName" type="xsd:string"/>
+            <xsd:element name="age" type="xsd:int"/>
+            <xsd:element name="yearlyIncome" type="xsd:int"/>
+            <xsd:element name="cibilScore" type="xsd:int"/>
+            <xsd:element name="employmentMode" type="xsd:string"/>
+            <xsd:element name="status" type="xsd:string"/>
+            <xsd:element name="message" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.sb.com/loantearms" xmlns="http://www.sb.com/loantearms" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="LoanRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="LoanAmount" type="xsd:decimal"/>
+            <xsd:element name="InterestRate" type="xsd:decimal"/>
+            <xsd:element name="LoanTerm" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="LoanResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Eligibility" type="xsd:boolean"/>
+            <xsd:element name="MaxLoanAmount" type="xsd:decimal"/>
+            <xsd:element name="MonthlyPayment" type="xsd:decimal"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="CustomerRequest">
+    <wsdl:part element="tns:CustomerRequest" name="CustomerRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerResponse">
+    <wsdl:part element="sch1:UpdateCustomerResponse" name="UpdateCustomerResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="LoanResponse">
+    <wsdl:part element="sch2:LoanResponse" name="LoanResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DeleteCustomerRequest">
+    <wsdl:part element="sch1:DeleteCustomerRequest" name="DeleteCustomerRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DeleteCustomerResponse">
+    <wsdl:part element="sch1:DeleteCustomerResponse" name="DeleteCustomerResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetCustomerRequest">
+    <wsdl:part element="sch1:GetCustomerRequest" name="GetCustomerRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CreateCustomerRequest">
+    <wsdl:part element="sch1:CreateCustomerRequest" name="CreateCustomerRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerRequest">
+    <wsdl:part element="sch1:UpdateCustomerRequest" name="UpdateCustomerRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetCustomerResponse">
+    <wsdl:part element="sch1:GetCustomerResponse" name="GetCustomerResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="LoanRequest">
+    <wsdl:part element="sch2:LoanRequest" name="LoanRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CreateCustomerResponse">
+    <wsdl:part element="sch1:CreateCustomerResponse" name="CreateCustomerResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="LoanEligibilityPortType">
+    <wsdl:operation name="Customer">
+      <wsdl:input message="tns:CustomerRequest" name="CustomerRequest"></wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <wsdl:input message="tns:UpdateCustomerRequest" name="UpdateCustomerRequest"></wsdl:input>
+      <wsdl:output message="tns:UpdateCustomerResponse" name="UpdateCustomerResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Loan">
+      <wsdl:input message="tns:LoanRequest" name="LoanRequest"></wsdl:input>
+      <wsdl:output message="tns:LoanResponse" name="LoanResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomer">
+      <wsdl:input message="tns:DeleteCustomerRequest" name="DeleteCustomerRequest"></wsdl:input>
+      <wsdl:output message="tns:DeleteCustomerResponse" name="DeleteCustomerResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <wsdl:input message="tns:GetCustomerRequest" name="GetCustomerRequest"></wsdl:input>
+      <wsdl:output message="tns:GetCustomerResponse" name="GetCustomerResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomer">
+      <wsdl:input message="tns:CreateCustomerRequest" name="CreateCustomerRequest"></wsdl:input>
+      <wsdl:output message="tns:CreateCustomerResponse" name="CreateCustomerResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LoanEligibilityPortTypeSoap11" type="tns:LoanEligibilityPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Customer">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="CustomerRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="UpdateCustomerRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="UpdateCustomerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Loan">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="LoanRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="LoanResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCustomer">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="DeleteCustomerRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="DeleteCustomerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomer">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="GetCustomerRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetCustomerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomer">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="CreateCustomerRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="CreateCustomerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LoanEligibilityService">
+    <wsdl:port binding="tns:LoanEligibilityPortTypeSoap11" name="LoanEligibilityPortTypeSoap11">
+      <soap:address location="http://localhost:8080/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ws</con:endpoint></con:endpoints><con:operation id="2eba1068-8d14-4f8d-86fc-3b39e5620543" isOneWay="false" action="" name="CreateCustomer" bindingOperationName="CreateCustomer" type="Request-Response" outputName="CreateCustomerResponse" inputName="CreateCustomerRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="fb685a40-49fc-4319-88a8-4da985bfa218" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.sb.com/customer">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cus:CreateCustomerRequest>\r
+         <cus:customerId>?</cus:customerId>\r
+         <cus:customerName>?</cus:customerName>\r
+         <cus:age>?</cus:age>\r
+         <cus:yearlyIncome>?</cus:yearlyIncome>\r
+         <cus:cibilScore>?</cus:cibilScore>\r
+         <cus:employmentMode>?</cus:employmentMode>\r
+      </cus:CreateCustomerRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.sb.com/loanEligibility/LoanEligibilityPortType/CreateCustomerRequest"/></con:call></con:operation><con:operation id="12329902-fa25-497c-bc78-f64dbd4aae12" isOneWay="false" action="" name="Customer" bindingOperationName="Customer" type="One-Way" inputName="CustomerRequest" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0ca3ce0b-f7f6-4391-b6b0-5a9dfaf601ce" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:loan="http://www.sb.com/loanEligibility"
+xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">\r
+    <soapenv:Header>
+      <wsse:Security soapenv:mustUnderstand="1">
+         <wsse:UsernameToken>
+            <wsse:Username>admin</wsse:Username>
+            <wsse:Password>pwd123</wsse:Password>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body>\r
+      <loan:CustomerRequest>\r
+         <loan:id>1</loan:id>\r
+      </loan:CustomerRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.sb.com/loanEligibility/LoanEligibilityPortType/CustomerRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="4f11ed65-78ba-4e24-acdd-9807bf853fe3" isOneWay="false" action="" name="DeleteCustomer" bindingOperationName="DeleteCustomer" type="Request-Response" outputName="DeleteCustomerResponse" inputName="DeleteCustomerRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="7c153059-0bd2-427b-94b5-534c5262800a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cus="http://www.sb.com/customer">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <cus:DeleteCustomerRequest>\r
+         <cus:customerId>?</cus:customerId>\r
+      </cus:DeleteCustomerRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.sb.com/loanEligibility/LoanEligibilityPortType/DeleteCustomerRequest"/></con:call></con:operation><con:operation id="68325d8a-6559-4d16-885a-67402022cee2" isOneWay="false" action="" name="GetCustomer" bindingOperationName="GetCustomer" type="Request-Response" outputName="GetCustomerResponse" inputName="GetCustomerRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="63fed85b-55d7-4f4f-944e-d2041507c089" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:cus="http://www.sb.com/customer"
+xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+    <soapenv:Header>
+      <wsse:Security soapenv:mustUnderstand="1">
+         <wsse:UsernameToken>
+            <wsse:Username>admin</wsse:Username>
+            <wsse:Password>pwd123</wsse:Password>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body>\r
+      <cus:GetCustomerRequest>\r
+         <cus:customerId>1</cus:customerId>\r
+      </cus:GetCustomerRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.sb.com/loanEligibility/LoanEligibilityPortType/GetCustomerRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="694bac1c-1124-437a-a735-233188f2eeb2" isOneWay="false" action="" name="Loan" bindingOperationName="Loan" type="Request-Response" outputName="LoanResponse" inputName="LoanRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="420a9774-003f-4c75-b6fc-9ed9c5520a6e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:loan="http://www.sb.com/loantearms">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <loan:LoanRequest>\r
+         <loan:LoanAmount>?</loan:LoanAmount>\r
+         <loan:InterestRate>?</loan:InterestRate>\r
+         <loan:LoanTerm>?</loan:LoanTerm>\r
+      </loan:LoanRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.sb.com/loanEligibility/LoanEligibilityPortType/LoanRequest"/></con:call></con:operation><con:operation id="c6f38b7d-6fbf-4f2f-a0be-0763c1759021" isOneWay="false" action="" name="UpdateCustomer" bindingOperationName="UpdateCustomer" type="Request-Response" outputName="UpdateCustomerResponse" inputName="UpdateCustomerRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="dd64209e-9e9b-4266-ab9b-22a7477dead8" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:cus="http://www.sb.com/customer"xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+    <soapenv:Header>
+      <wsse:Security soapenv:mustUnderstand="1">
+         <wsse:UsernameToken>
+            <wsse:Username>admin</wsse:Username>
+            <wsse:Password>pwd123</wsse:Password>
+         </wsse:UsernameToken>
+      </wsse:Security>
+   </soapenv:Header>
+   <soapenv:Body>\r
+      <cus:UpdateCustomerRequest>\r
+         <cus:customerId>12</cus:customerId>\r
+         <cus:customerName>Nivaan</cus:customerName>\r
+         <cus:age>9</cus:age>\r
+         <cus:yearlyIncome>100000</cus:yearlyIncome>\r
+         <cus:cibilScore>800</cus:cibilScore>\r
+         <cus:employmentMode>gov</cus:employmentMode>\r
+      </cus:UpdateCustomerRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.sb.com/loanEligibility/LoanEligibilityPortType/UpdateCustomerRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

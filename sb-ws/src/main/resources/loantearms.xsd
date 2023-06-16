@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.sb.com/loantearms"
+           xmlns="http://www.sb.com/loantearms"
+           elementFormDefault="qualified">
+    <xsd:element name="LoanRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="LoanAmount" type="xsd:decimal" />
+                <xsd:element name="InterestRate" type="xsd:decimal" />
+                <xsd:element name="LoanTerm" type="xsd:int" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="LoanResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Eligibility" type="xsd:boolean" />
+                <xsd:element name="MaxLoanAmount" type="xsd:decimal" />
+                <xsd:element name="MonthlyPayment" type="xsd:decimal" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+
+</xsd:schema>

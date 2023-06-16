@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://www.sb.com/customer"
+    xmlns:tns="http://www.sb.com/customer"
+    elementFormDefault="qualified">
+
+    <!-- Define the body -->
+    <xsd:element name="CreateCustomerRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+            	<xsd:element name="customerId" type="xsd:int"/>
+            	<xsd:element name="customerName" type="xsd:string"/>
+            	<xsd:element name="age" type="xsd:int"/>
+            	<xsd:element name="yearlyIncome" type="xsd:int"/>
+            	<xsd:element name="cibilScore" type="xsd:int" />
+            	<xsd:element name="employmentMode" type="xsd:string" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+	<xsd:element name="CreateCustomerResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="customerId" type="xsd:int"/>
+                <xsd:element name="status" type="xsd:string" />
+				<xsd:element name="message" type="xsd:string" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="DeleteCustomerRequest">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element name ="customerId" type="xsd:int"/>
+    		</xsd:sequence>
+    	</xsd:complexType>
+    </xsd:element>
+    
+     <xsd:element name="DeleteCustomerResponse">
+    	 <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="customerId" type="xsd:int"/>
+                <xsd:element name="status" type="xsd:string" />
+				<xsd:element name="message" type="xsd:string" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    
+     <xsd:element name="UpdateCustomerRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+            	<xsd:element name="customerId" type="xsd:int"/>
+            	<xsd:element name="customerName" type="xsd:string"/>
+            	<xsd:element name="age" type="xsd:int"/>
+            	<xsd:element name="yearlyIncome" type="xsd:int"/>
+            	<xsd:element name="cibilScore" type="xsd:int" />
+            	<xsd:element name="employmentMode" type="xsd:string" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+	<xsd:element name="UpdateCustomerResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="customerId" type="xsd:int"/>
+                <xsd:element name="status" type="xsd:string" />
+				<xsd:element name="message" type="xsd:string" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="GetCustomerRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+            	<xsd:element name="customerId" type="xsd:int"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+	<xsd:element name="GetCustomerResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="customerId" type="xsd:int"/>
+                <xsd:element name="customerName" type="xsd:string"/>
+            	<xsd:element name="age" type="xsd:int"/>
+            	<xsd:element name="yearlyIncome" type="xsd:int"/>
+            	<xsd:element name="cibilScore" type="xsd:int" />
+            	<xsd:element name="employmentMode" type="xsd:string" />
+                <xsd:element name="status" type="xsd:string" />
+				<xsd:element name="message" type="xsd:string" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    
+    
+</xsd:schema>
