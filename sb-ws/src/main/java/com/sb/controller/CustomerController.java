@@ -18,6 +18,7 @@ import com.sb.repository.CustomerRepository;
 //TODO: ADD RequestParam too. So we can identify URL change in code with ? and PathVariable.
 //TODO: Add UPSERT operation via PUT
 //TODO : Add PAtch operation for only specified update 
+//TODO : Add Circuit Breaker and resilence4j code.
 
 @RestController
 @RequestMapping("/customers")
