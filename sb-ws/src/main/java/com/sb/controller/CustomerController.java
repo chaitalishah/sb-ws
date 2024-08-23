@@ -47,7 +47,7 @@ public class CustomerController {
 		customerRepository.save(customer);
 		return "Added customer with id : " + customer.getCustomerId();
 	}
-/**
+/** UPSERT OPERATION
 	@PutMapping("/{id}")
     	public User upsertUser(@PathVariable Long id, @RequestBody User user) {
         user.setId(id); // Ensure the ID is set for the upsert
