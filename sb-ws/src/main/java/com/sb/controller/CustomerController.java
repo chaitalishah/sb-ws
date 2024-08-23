@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sb.model.Customer;
 import com.sb.repository.CustomerRepository;
 
+//TODO: ADD RequestParam too. So we can identify URL change in code with ? and PathVariable.
+
 @RestController
 @RequestMapping("/customers")
 public class CustomerController {
