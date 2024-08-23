@@ -16,6 +16,8 @@ import com.sb.model.Customer;
 import com.sb.repository.CustomerRepository;
 
 //TODO: ADD RequestParam too. So we can identify URL change in code with ? and PathVariable.
+//TODO: Add UPSERT operation via PUT
+//TODO : Add PAtch operation for only specified update 
 
 @RestController
 @RequestMapping("/customers")
